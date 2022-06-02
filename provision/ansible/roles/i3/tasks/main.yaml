@@ -3,3 +3,4 @@
   copy:
     src: config
     dest: "/home/{{ local_user }}/.config/i3/config"
+  tags: i3

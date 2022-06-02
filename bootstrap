@@ -12,7 +12,7 @@ function set_colors(){
   txtblu=$(tput setaf 4) # Blue
   txtpur=$(tput setaf 5) # Purple
   txtcyn=$(tput setaf 6) # Cyan
-  txtrst=$(tput sgr0) # Reset 
+  txtrst=$(tput sgr0) # Reset
 }
 
 function log(){
@@ -29,15 +29,15 @@ function get_os_info(){
   arch=$(uname -m)
   kernel=$(uname -r)
   if [ -n "$(command -v lsb_release)" ]; then
-  	distroname=$(lsb_release -s -d)
+      distroname=$(lsb_release -s -d)
   elif [ -f "/etc/os-release" ]; then
-  	distroname=$(grep PRETTY_NAME /etc/os-release | sed 's/PRETTY_NAME=//g' | tr -d '="')
+      distroname=$(grep PRETTY_NAME /etc/os-release | sed 's/PRETTY_NAME=//g' | tr -d '="')
   elif [ -f "/etc/debian_version" ]; then
-  	distroname="Debian $(cat /etc/debian_version)"
+      distroname="Debian $(cat /etc/debian_version)"
   elif [ -f "/etc/redhat-release" ]; then
-  	distroname=$(cat /etc/redhat-release)
+      distroname=$(cat /etc/redhat-release)
   else
-  	distroname="$(uname -s) $(uname -r)"
+      distroname="$(uname -s) $(uname -r)"
   fi
 }
 
@@ -48,13 +48,9 @@ function install_go_task(){
 function fedora_36_desktop_bootstrap(){
   log i "Boostraping dependencies for $distroname."
   log i "The follow dependencies will be installed (if not present).
-	ansible
-	curl
-	task"
-  if [ $EUID != 0 ]; then
-    sudo "$0" "$@"
-    exit $?
-  fi
+    ansible
+    curl
+    task"
   if ! command -v ansible; then
     dnf install -y ansible
   fi
@@ -65,7 +61,6 @@ function fedora_36_desktop_bootstrap(){
     # See: https://taskfile.dev/installation/#install-script
     sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b /usr/local/bin
   fi
-  task ansible:fedora36:local
 }
 
 function linux_bootstrap(){
@@ -89,4 +84,8 @@ function main(){
   detect_os
 }
 
+if [ $EUID != 0 ]; then
+  sudo "$0" "$@"
+  exit $?
+fi
 main

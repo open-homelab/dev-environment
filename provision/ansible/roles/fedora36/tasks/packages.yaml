@@ -4,24 +4,28 @@
   dnf:
     name: "*"
     state: latest
+  tags: fedora36
 
 - name: Add kubernetes repository for kubectl
   become: true
   copy:
     src: kubernetes.repo
     dest: /etc/yum.repos.d/kubernetes.repo
+  tags: fedora36
 
 - name: Add gpg key for microsoft repo
   become: true
   rpm_key:
     state: present
     key: https://packages.microsoft.com/keys/microsoft.asc
+  tags: fedora36
 
 - name: Add microsoft repository for vscode
   become: true
   copy:
     src: vscode.repo
     dest: /etc/yum.repos.d/vscode.repo
+  tags: fedora36
 
 - name: Install common packages present in repo.
   become: true
@@ -50,8 +54,10 @@
       - mc
       - kubectl
     state: latest
+  tags: fedora36
 
 - name: Autoremove unneeded packages installed as dependencies
   become: true
   dnf:
     autoremove: yes
+  tags: fedora36

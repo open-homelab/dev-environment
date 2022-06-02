@@ -1,0 +1,6 @@
+---
+- name: Install instant-markdown-d node.js package globally.
+  npm:
+    name: instant-markdown-d
+    global: yes
+  tags: node-modules

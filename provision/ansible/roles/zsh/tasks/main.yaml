@@ -3,9 +3,11 @@
   copy:
     src: .zshrc
     dest: "/home/{{ local_user }}/.zshrc"
+  tags: zsh
 
 - name: Change user shell to zsh
   become: yes
   user:
     name: "{{ local_user }}"
     shell: /bin/zsh
+  tags: zsh

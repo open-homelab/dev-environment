@@ -1,17 +1,20 @@
 ---
-- name: Ensure fonts directory
+- name: Ensure fonts directory.
   file:
     path: "{{ lookup('env', 'HOME') }}/.fonts"
     state: directory
+  tags: font
 
-- name: Check if Mononoki font exists
+- name: Check if Mononoki font exists.
   shell: "ls {{ lookup('env', 'HOME') }}/.fonts/mononoki*Nerd*Font*Complete*"
   register: hack_exists
   ignore_errors: yes
+  tags: font
 
-- name: Download Hack
+- name: Download Mononoki font.
   when: hack_exists is failed
   unarchive:
     src: https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Mononoki.zip
     dest: "{{ lookup('env', 'HOME') }}/.fonts/"
     remote_src: yes
+  tags: font
