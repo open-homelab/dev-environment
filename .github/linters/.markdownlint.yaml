@@ -14,9 +14,9 @@ MD013:
   # Include tables
   tables: true
   # Include headings
-  # headings: true
+  headings: true
   # Include headings
-  # headers: true
+  headers: true
   # Strict length checking
   strict: false
   # Stern length checking
