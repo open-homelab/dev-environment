@@ -25,7 +25,7 @@ jobs:
         uses: github/super-linter/slim@v4
         env:
           VALIDATE_ALL_CODEBASE: ${{ github.event_name == 'workflow_dispatch' }}
-          DEFAULT_BRANCH: develop
+          DEFAULT_BRANCH: "${{ env.DEFAULT_BRANCH }}"
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           ANSIBLE_CONFIG_FILE: .ansible-lint
           MARKDOWN_CONFIG_FILE: .markdownlint.yaml
