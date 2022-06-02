@@ -30,6 +30,7 @@
       - curl
       - wget
       - nodejs
+      - go
       - neovim
       - python-devel
       - pre-commit
