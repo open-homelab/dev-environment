@@ -5,9 +5,26 @@
 
 This project is to setup your local or server environment.
 
+# Table of Contents
+
+
+<!-- vim-markdown-toc Marked -->
+
+  * [Requirements](#requirements)
++ [How-To](#how-to)
+  * [Fedora 36](#fedora-36)
+    - [1. Clone this repository](#1.-clone-this-repository)
+    - [2. Run bootstrap](#2.-run-bootstrap)
+    - [3. Run ansible](#3.-run-ansible)
+    - [4. Reboot your system](#4.-reboot-your-system)
+
+<!-- vim-markdown-toc -->
+
 ## Requirements
 
 * git
+
+# How-To
 
 ## Fedora 36
 
