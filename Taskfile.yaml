@@ -1,12 +1,9 @@
 ---
 version: "3"
-tasks:
 
-  dumb:
-    desc: Dumby place holder task. 
-    cmds:
-      - ls -al
-    preconditions:
-      - sh: command -v ls 
-        msg: |
-         How do you not have ls?!
+vars:
+  PROJECT_DIR:
+    sh: "git rev-parse --show-toplevel"
+
+includes:
+  ansible: .taskfiles/AnsibleTasks.yaml

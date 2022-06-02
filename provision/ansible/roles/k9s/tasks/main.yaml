@@ -1,0 +1,34 @@
+---
+- name: Download latest k9s from github.
+  become: true
+  get_url:
+    url: https://github.com/derailed/k9s/releases/latest/download/k9s_Linux_x86_64.tar.gz
+    dest: /tmp/k9s_Linux_x86_64.tar.gz
+
+- name: Create temporary directory.
+  become: true
+  file:
+    path: /tmp/k9s_linux
+    state: directory
+    mode: '0755'
+
+- name: Extract k9s_Linux_x86_64.tar.gz into /tmp/k9s_linux
+  become: true
+  unarchive:
+    src: /tmp/k9s_Linux_x86_64.tar.gz
+    dest: /tmp/k9s_linux
+
+- name: Copy file to user bin.
+  become: true
+  copy:
+    src: /tmp/k9s_linux/k9s
+    dest: /usr/local/bin/k9s
+    mode: '0755'
+
+- name: Delete temp files.
+  become: true
+  file:
+    state: absent
+    path:
+      - /tmp/k9s_Linux_x86_64.tar.gz
+      - /tmp/k9s_linux

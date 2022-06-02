@@ -1,0 +1,12 @@
+---
+- name: Make sure config directory for vim exsists.
+  file:
+    path: "/home/{{ local_user}}/.config/nvim"
+    state: directory
+  tags: neovim
+
+- name: Copy init.vim to config directory.
+  copy:
+    src: init.vim
+    dest: "/home/{{ local_user }}/.config/nvim/"
+  tags: neovim

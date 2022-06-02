@@ -1,0 +1,13 @@
+---
+- hosts:
+    - localhost
+  gather_facts: true
+  any_errors_fatal: true
+  roles:
+    - fedora36
+    - k9s
+    - zsh
+    - fonts
+    - starship
+    - i3
+    - neovim

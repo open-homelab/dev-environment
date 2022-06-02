@@ -1,0 +1,17 @@
+---
+version: "3"
+
+env:
+  ANSIBLE_CONFIG: "{{.PROJECT_DIR}}/ansible.cfg"
+
+vars:
+  ANSIBLE_PLAYBOOK_DIR: "{{.ANSIBLE_DIR}}/playbooks"
+  ANSIBLE_INVENTORY_DIR: "{{.ANSIBLE_DIR}}/inventory"
+
+tasks:
+
+  fedora36:local:
+    desc: Ansible playbook for local environment setup.
+    dir: provision/ansible
+    cmds:
+      - ansible-playbook playbooks/local-fedora36.yaml --ask-become-pass --extra-vars "local_user=$USER"

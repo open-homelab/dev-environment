@@ -1,0 +1,55 @@
+---
+- name: Upgrade all packages
+  become: true
+  dnf:
+    name: "*"
+    state: latest
+
+- name: Add kubernetes repository for kubectl
+  become: true
+  copy:
+    src: kubernetes.repo
+    dest: /etc/yum.repos.d/kubernetes.repo
+
+- name: Add gpg key for microsoft repo
+  become: true
+  rpm_key:
+    state: present
+    key: https://packages.microsoft.com/keys/microsoft.asc
+
+- name: Add microsoft repository for vscode
+  become: true
+  copy:
+    src: vscode.repo
+    dest: /etc/yum.repos.d/vscode.repo
+
+- name: Install common packages present in repo.
+  become: true
+  dnf:
+    name:
+      - curl
+      - wget
+      - nodejs
+      - neovim
+      - pre-commit
+      - code
+      - zsh
+      - kitty
+      - tmux
+      - asciinema
+      - direnv
+      - starship
+      - exa
+      - bat
+      - ripgrep
+      - fzf
+      - zoxide
+      - entr
+      - mc
+      - kubectl
+    state: latest
+
+- name: Autoremove unneeded packages installed as dependencies
+  become: true
+  dnf:
+    autoremove: yes

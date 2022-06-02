@@ -1,0 +1,11 @@
+---
+- name: Copy zshrc
+  copy:
+    src: .zshrc
+    dest: "/home/{{ local_user }}/.zshrc"
+
+- name: Change user shell to zsh
+  become: yes
+  user:
+    name: "{{ local_user }}"
+    shell: /bin/zsh
