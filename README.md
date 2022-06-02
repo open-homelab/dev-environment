@@ -36,7 +36,7 @@ This project is to setup your local or server environment.
 
 Please be sure you read and understand what this script is installing first.
 
-`./bootstrap`
+`./bootstrap.sh`
 
 ### 3. Run ansible
 
