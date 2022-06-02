@@ -7,7 +7,6 @@ This project is to setup your local or server environment.
 
 # Table of Contents
 
-
 <!-- vim-markdown-toc Marked -->
 
   * [Requirements](#requirements)
