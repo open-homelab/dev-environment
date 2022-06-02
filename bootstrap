@@ -6,12 +6,9 @@
 #######################################################################
 
 function set_colors(){
-  txtblk=$(tput setaf 0) # Black - Regular
   txtred=$(tput setaf 1) # Red
   txtgrn=$(tput setaf 2) # Green
-  txtblu=$(tput setaf 4) # Blue
   txtpur=$(tput setaf 5) # Purple
-  txtcyn=$(tput setaf 6) # Cyan
   txtrst=$(tput sgr0) # Reset
 }
 
@@ -26,8 +23,6 @@ function log(){
 }
 
 function get_os_info(){
-  arch=$(uname -m)
-  kernel=$(uname -r)
   if [ -n "$(command -v lsb_release)" ]; then
       distroname=$(lsb_release -s -d)
   elif [ -f "/etc/os-release" ]; then
