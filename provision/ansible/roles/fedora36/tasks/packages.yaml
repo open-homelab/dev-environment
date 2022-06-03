@@ -55,6 +55,7 @@
       - entr
       - mc
       - kubectl
+      - wireguard-tools
     state: latest
   tags: fedora36
 
