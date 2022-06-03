@@ -32,10 +32,12 @@
   dnf:
     name:
       - curl
+      - neofetch
       - wget
       - nodejs
       - go
       - neovim
+      - tigervnc-server
       - python-devel
       - pre-commit
       - code
