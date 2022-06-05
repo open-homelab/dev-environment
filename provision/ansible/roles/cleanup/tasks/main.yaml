@@ -1,0 +1,8 @@
+---
+- name: Change file ownership of configs.
+  file:
+    path: "/home/{{ local_user }}/.config"
+    state: directory
+    recurse: true
+    owner: "{{ local_user }}"
+    group: "{{ local_user }}"

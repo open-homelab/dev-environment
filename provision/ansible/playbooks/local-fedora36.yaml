@@ -17,3 +17,4 @@
     - neovim
     - node-modules
     - k3d
+    - cleanup

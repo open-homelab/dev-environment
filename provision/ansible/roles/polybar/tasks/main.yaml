@@ -11,6 +11,11 @@
     dest: "/home/{{ local_user }}/.config/polybar"
   tags: polybar
 
+- name: Make launch script executable.
+  file:
+    path: "/home/{{ local_user }}/.config/polybar/launch.sh"
+    mode: "0755"
+
 - name: Copy polybar config.
   copy:
     src: config.ini
