@@ -16,5 +16,5 @@
     - polybar
     - neovim
     - node-modules
-    - k3d
+    - kubebuilder
     - cleanup

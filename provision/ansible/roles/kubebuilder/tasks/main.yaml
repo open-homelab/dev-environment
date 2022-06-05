@@ -1,0 +1,11 @@
+---
+- name: Generate kubebuilder download url.
+  shell: "echo https://go.kubebuilder.io/dl/latest/$(go env GOOS)/$(go env GOARCH)"
+  register: kubebuilder_url
+
+- name: Download latest kubebuilder.
+  become: true
+  get_url:
+    url: "{{ kubebuilder_url.stdout_lines[0] }}"
+    dest: "/usr/local/bin/kubebuilder"
+    mode: "0755"

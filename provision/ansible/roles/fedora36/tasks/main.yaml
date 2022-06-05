@@ -3,3 +3,6 @@
 - include_tasks: docker.yaml
 - include_tasks: k8slens.yaml
 - include_tasks: nerdctl.yaml
+- include_tasks: hashicorp.yaml
+- include_tasks: k3d.yaml
+- include_tasks: github.yaml
