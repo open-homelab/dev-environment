@@ -36,6 +36,12 @@
       - wget
       - nodejs
       - go
+      - polybar
+      - i3-gaps
+      - rofi
+      - dunst
+      - firefox
+      - flameshot
       - neovim
       - tigervnc-server
       - python-devel

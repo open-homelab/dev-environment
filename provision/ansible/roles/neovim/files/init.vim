@@ -17,7 +17,7 @@ endif
 
 call plug#begin()
 
-Plug 'morhetz/gruvbox' " For a nice basic colorscheme
+Plug 'arcticicestudio/nord-vim' " For a nice basic colorscheme
 Plug 'dense-analysis/ale' " For linting and language servers
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " More linting and language servers.
 Plug 'ctrlpvim/ctrlp.vim' " For file navigation. I prefer this ove NERDTree
@@ -35,7 +35,7 @@ call plug#end()
 "       Settings          "
 """""""""""""""""""""""""""
 syntax on
-colorscheme gruvbox
+colorscheme nord
 "set colorcolumn=80
 set tabstop=2
 set shiftwidth=2

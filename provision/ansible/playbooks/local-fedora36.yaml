@@ -7,9 +7,12 @@
     - fedora36
     - k9s
     - zsh
+    - kitty
+    - rofi
     - fonts
     - starship
     - i3
+    - polybar
     - neovim
     - node-modules
     - k3d

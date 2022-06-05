@@ -1,0 +1,18 @@
+---
+- name: Make sure polybar config directory exsists.
+  file:
+    path: "/home/{{ local_user }}/.config/polybar"
+    state: directory
+  tags: polybar
+
+- name: Copy polybar launch script.
+  copy:
+    src: launch.sh
+    dest: "/home/{{ local_user }}/.config/polybar"
+  tags: polybar
+
+- name: Copy polybar config.
+  copy:
+    src: config.ini
+    dest: "/home/{{ local_user }}/.config/polybar"
+  tags: polybar
