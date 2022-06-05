@@ -5,7 +5,6 @@
   any_errors_fatal: true
   roles:
     - fedora36
-    - docker
     - k9s
     - zsh
     - kitty

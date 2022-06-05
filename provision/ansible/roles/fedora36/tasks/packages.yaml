@@ -6,6 +6,13 @@
     state: latest
   tags: fedora36
 
+- name: Add docker repository
+  become: true
+  copy:
+    src: docker-ce.repo
+    dest: /etc/yum.repos.d/docker-ce.repo
+  tags: docker, fedora36
+
 - name: Add kubernetes repository for kubectl
   become: true
   copy:
@@ -36,6 +43,10 @@
       - wget
       - nodejs
       - go
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-compose-plugin
       - polybar
       - i3-gaps
       - rofi
