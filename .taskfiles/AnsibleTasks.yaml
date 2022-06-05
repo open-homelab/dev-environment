@@ -14,4 +14,4 @@ tasks:
     desc: Ansible playbook for local environment setup.
     dir: provision/ansible
     cmds:
-      - ansible-playbook playbooks/local-fedora36.yaml --ask-become-pass --extra-vars "local_user=$USER"
+      - ansible-playbook playbooks/local-fedora36.yaml --ask-become-pass --extra-vars "local_user=$USER" {{.CLI_ARGS}}

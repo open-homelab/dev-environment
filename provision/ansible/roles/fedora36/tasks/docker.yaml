@@ -1,0 +1,36 @@
+---
+- name: Create docker group.
+  become: true
+  group:
+    name: docker
+    state: present
+
+- name: Adding user {{ local_user }} to docker group.
+  become: true
+  user: name={{ local_user }}
+        groups=docker
+        append=yes
+
+- name: Add docker repository
+  become: true
+  copy:
+    src: docker-ce.repo
+    dest: /etc/yum.repos.d/docker-ce.repo
+  args:
+    creates: /etc/yum.repos.d/docker-ce.repo
+  tags: docker, fedora36
+
+- name: Install docker.
+  become: true
+  dnf:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-compose-plugin
+
+- name: Start and enable docker service.
+  systemd:
+    state: started
+    enabled: true
+    name: docker

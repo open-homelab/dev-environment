@@ -4,6 +4,7 @@
   gather_facts: true
   any_errors_fatal: true
   roles:
+    - python_libs
     - fedora36
     - k9s
     - zsh

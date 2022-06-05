@@ -1,0 +1,4 @@
+---
+- name: Install github3.py library.
+  pip:
+    name: github3.py
