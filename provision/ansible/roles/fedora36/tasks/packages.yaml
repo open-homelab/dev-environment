@@ -62,6 +62,10 @@
       - mc
       - kubectl
       - wireguard-tools
+      - age
+      - ipcalc
+      - jq
+      - virt-manager
     state: latest
   tags: fedora36
 
