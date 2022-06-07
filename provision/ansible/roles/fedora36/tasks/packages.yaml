@@ -66,6 +66,7 @@
       - ipcalc
       - jq
       - virt-manager
+      - qemu
     state: latest
   tags: fedora36
 
