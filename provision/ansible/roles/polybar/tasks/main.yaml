@@ -1,22 +1,26 @@
 ---
 - name: Make sure polybar config directory exsists.
+  become: false
   file:
     path: "/home/{{ local_user }}/.config/polybar"
     state: directory
   tags: polybar
 
 - name: Copy polybar launch script.
+  become: false
   copy:
     src: launch.sh
     dest: "/home/{{ local_user }}/.config/polybar"
   tags: polybar
 
 - name: Make launch script executable.
+  become: false
   file:
     path: "/home/{{ local_user }}/.config/polybar/launch.sh"
     mode: "0755"
 
 - name: Copy polybar config.
+  become: false
   copy:
     src: config.ini
     dest: "/home/{{ local_user }}/.config/polybar"

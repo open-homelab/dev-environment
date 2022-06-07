@@ -1,0 +1,47 @@
+---
+- name: Install common packages present in repo.
+  become: true
+  apt:
+    name:
+      - apt-transport-https
+      - curl
+      - neofetch
+      - wget
+      - nodejs
+      - go
+      - polybar
+      - i3-gaps
+      - rofi
+      - dunst
+      - firefox
+      - flameshot
+      - neovim
+      - tigervnc-server
+      - python-devel
+      - pre-commit
+      - code
+      - zsh
+      - kitty
+      - tmux
+      - asciinema
+      - direnv
+      - starship
+      - exa
+      - bat
+      - ripgrep
+      - fzf
+      - zoxide
+      - entr
+      - mc
+      - kubectl
+      - wireguard-tools
+      - age
+      - ipcalc
+      - jq
+      - virt-manager
+      - qemu
+    state: latest
+    update_cache: true
+    upgrade: dist
+    autoremove: true
+    autoclean: true

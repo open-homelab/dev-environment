@@ -1,11 +1,13 @@
 ---
 - name: Make sure kitty configuration directoy exsists.
+  become: false
   file:
     path: "./home/{{ local_user }}/.config/kitty"
     state: directory
   tags: kitty
 
 - name: Copy kitty configs.
+  become: false
   copy:
     src: kitty.conf
     dest: "/home/{{ local_user }}/.config/kitty"

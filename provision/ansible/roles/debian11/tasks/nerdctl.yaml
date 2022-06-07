@@ -1,0 +1,27 @@
+---
+- name: Get nerdclt latest release.
+  github_release:
+    user: containerd
+    repo: nerdctl
+    action: latest_release
+  register: nerdctl_release
+
+- name: Print latest nerctl release.
+  debug:
+    msg: "Latest nerdctl release is {{ nerdctl_release.tag }}"
+
+- name: Download latest nerdctl release.
+  get_url:
+    url: "https://github.com/containerd/nerdctl/releases/download/{{ nerdctl_release.tag}}/nerdctl-{{ nerdctl_release.tag | replace('v','')}}-linux-amd64.tar.gz"
+    dest: "/tmp"
+
+- name: Unarchive nerctl.
+  unarchive:
+    src: "/tmp/nerdctl-{{ nerdctl_release.tag | replace('v','')}}-linux-amd64.tar.gz"
+    dest: "/usr/local/bin"
+
+- name: Enable contianerd.
+  systemd:
+    name: containerd
+    enabled: true
+    state: started

@@ -1,0 +1,24 @@
+---
+- name: Make sure dnf config manager is installed.
+  become: true
+  dnf:
+    name:
+      - dnf-plugins-core
+    state: latest
+
+- name: Add hashicorp repository.
+  become: true
+  shell: "dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo"
+
+- name: Install hashicorp tools.
+  become: true
+  dnf:
+    name:
+      - terraform
+      - consul
+      - packer
+      - vagrant
+      - vault
+      - nomad
+      - waypoint
+      - boundary

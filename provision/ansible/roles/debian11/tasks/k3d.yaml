@@ -1,0 +1,14 @@
+---
+- name: Download k3d intall script.
+  get_url:
+    url: https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh
+    dest: /tmp/
+    mode: 0755
+
+- name: Run k3d install script.
+  shell: /tmp/install.sh
+
+- name: Remove k3d install script.
+  file:
+    path: /tmp/install.sh
+    state: absent

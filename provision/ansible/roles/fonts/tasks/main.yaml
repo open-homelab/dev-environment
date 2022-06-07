@@ -1,5 +1,6 @@
 ---
 - name: Ensure fonts directory.
+  become: false
   file:
     path: "{{ lookup('env', 'HOME') }}/.fonts"
     state: directory
@@ -12,6 +13,7 @@
   tags: font
 
 - name: Download Mononoki font.
+  become: false
   when: hack_exists is failed
   unarchive:
     src: https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Mononoki.zip

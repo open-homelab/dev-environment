@@ -17,4 +17,3 @@
     - neovim
     - node-modules
     - kubebuilder
-    - cleanup

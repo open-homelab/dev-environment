@@ -1,5 +1,6 @@
 ---
 - name: Install instant-markdown-d node.js package globally.
+  become: false
   npm:
     name: instant-markdown-d
     global: yes

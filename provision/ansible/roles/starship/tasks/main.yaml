@@ -1,11 +1,13 @@
 ---
 - name: Make sure config directory exsists.
+  become: false
   file:
     path: "/home/{{ local_user }}/.config"
     state: directory
   tags: starship
 
 - name: Copy starship configs.
+  become: false
   copy:
     src: starship.toml
     dest: "/home/{{ local_user }}/.config/starship.toml"

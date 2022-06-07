@@ -1,12 +1,13 @@
 ---
 - name: Copy zshrc
+  become: false
   copy:
     src: .zshrc
     dest: "/home/{{ local_user }}/.zshrc"
   tags: zsh
 
 - name: Change user shell to zsh
-  become: yes
+  become: true
   user:
     name: "{{ local_user }}"
     shell: /bin/zsh

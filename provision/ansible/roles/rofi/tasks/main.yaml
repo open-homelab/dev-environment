@@ -1,17 +1,20 @@
 ---
 - name: Make sure rofi configuration directoy exsists.
+  become: false
   file:
     path: "/home/{{ local_user }}/.config/rofi"
     state: directory
   tags: rofi
 
 - name: Copy rofi configs.
+  become: false
   copy:
     src: config.rasi
     dest: "/home/{{ local_user }}/.config/rofi"
   tags: rofi
 
 - name: Copy rofi nord theme.
+  become: false
   copy:
     src: nord.rasi
     dest: "/home/{{ local_user }}/.config/rofi"

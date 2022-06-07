@@ -1,5 +1,6 @@
 ---
 - name: Copy i3 configs.
+  become: false
   copy:
     src: config
     dest: "/home/{{ local_user }}/.config/i3/config"
