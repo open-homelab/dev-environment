@@ -58,9 +58,27 @@ function fedora_36_desktop_bootstrap() {
     fi
 }
 
+function debian_11_desktop_bootstrap() {
+    log i "Boostraping dependencies for $distroname."
+    log i "The follow dependencies will be installed (if not present).
+    ansible
+    curl
+    task"
+    if ! command -v ansible; then
+        apt install -y ansible
+    fi
+    if ! command -v curl; then
+        apt install -y curl
+    fi
+    if ! command -v task; then
+        # See: https://taskfile.dev/installation/#install-script
+        sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b /usr/local/bin
+    fi
+}
 function linux_bootstrap() {
     case "$distroname" in
     "Fedora Linux 36 (Thirty Six)") fedora_36_desktop_bootstrap ;;
+    "Debian GNU/Linux 11 (bullseye)") debian_11_desktop-bootstrap ;;
     *) log e "Unsupported linux distrobution: $distroname" ;;
     esac
 }
