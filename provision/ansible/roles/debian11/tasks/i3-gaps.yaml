@@ -4,6 +4,8 @@
   apt:
     update_cache: true
     name:
+      - meson
+      - ninja-build
       - dh-autoreconf
       - libxcb-keysyms1-dev
       - libpango1.0-dev
