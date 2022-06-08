@@ -56,3 +56,16 @@
   shell: ninja
   args:
     chdir: /src/i3-gaps/build
+
+- name: Copy files to bin directory.
+  become: true
+  copy:
+    src: /src/i3-gaps/build/i3
+    dest: /usr/local/bin
+    owner: root
+    mode: "0755"
+
+- name: Remove source code.
+  file:
+    state: absent
+    path: /src
