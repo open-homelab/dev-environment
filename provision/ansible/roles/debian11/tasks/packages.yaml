@@ -5,6 +5,8 @@
     name:
       - xorg
       - apt-transport-https
+      - ca-certificates
+      - lsb-release
       - curl
       - neofetch
       - wget

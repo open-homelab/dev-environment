@@ -4,23 +4,32 @@
   group:
     name: docker
     state: present
+  tags: docker
 
 - name: Adding user {{ local_user }} to docker group.
   become: true
   user: name={{ local_user }}
         groups=docker
         append=yes
+  tags: docker
 
-- name: Add docker repository
+- name: Add docker gpg key.
   become: true
-  copy:
-    src: docker-ce.repo
-    dest: /etc/yum.repos.d/docker-ce.repo
-  tags: docker, fedora36
+  apt_key:
+    url: https://download.docker.com/linux/debian/gpg
+    state: present
+  tags: docker
+
+- name: Setup docker repo.
+  become: true
+  apt_repository:
+    repo: https://download.docker.com/linux/debian bullseye stable
+    state: present
 
 - name: Install docker.
   become: true
-  dnf:
+  apt:
+    update_cache: true
     name:
       - docker-ce
       - docker-ce-cli
