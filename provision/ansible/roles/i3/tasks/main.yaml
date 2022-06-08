@@ -1,4 +1,10 @@
 ---
+- name: Make sure i3 config directory exsists.
+  become: false
+  file:
+    state: directory
+    path: "/home/{{ local_user }}/.config/i3/"
+
 - name: Copy i3 configs.
   become: false
   copy:
