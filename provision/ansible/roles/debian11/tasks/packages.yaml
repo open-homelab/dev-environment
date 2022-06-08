@@ -3,6 +3,7 @@
   become: true
   apt:
     name:
+      - xorg
       - apt-transport-https
       - curl
       - neofetch
