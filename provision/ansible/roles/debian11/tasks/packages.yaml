@@ -13,7 +13,7 @@
       - polybar
       - rofi
       - dunst
-      - firefox
+      - firefox-esr
       - flameshot
       - neovim
       - tigervnc-server
