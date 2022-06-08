@@ -78,7 +78,7 @@ function debian_11_desktop_bootstrap() {
 function linux_bootstrap() {
     case "$distroname" in
     "Fedora Linux 36 (Thirty Six)") fedora_36_desktop_bootstrap ;;
-    "Debian GNU/Linux 11 (bullseye)") debian_11_desktop-bootstrap ;;
+    "Debian GNU/Linux 11 (bullseye)") debian_11_desktop_bootstrap ;;
     *) log e "Unsupported linux distrobution: $distroname" ;;
     esac
 }
