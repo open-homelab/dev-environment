@@ -1,5 +1,3 @@
 ---
 - name: Update "starship" Rust package to its latest version
-  community.general.cargo:
-    name: starship
-    state: latest
+  shell: cargo install starship --locked
