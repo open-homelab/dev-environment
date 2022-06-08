@@ -8,7 +8,6 @@
     - zsh
     - kitty
     - rofi
-    - fonts
     - starship
     - i3
     - polybar
@@ -16,4 +15,5 @@
     - node-modules
     - kubebuilder
     - debian11
+    - fonts
     - python_libs
