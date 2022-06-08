@@ -4,6 +4,7 @@
   apt:
     update_cache: true
     name:
+      - make
       - meson
       - ninja-build
       - dh-autoreconf
