@@ -11,7 +11,6 @@
     msg: "Latest sops release is {{ sops_release.tag }}"
 
 - name: Install sops.
-  dnf:
-    name: "https://github.com/mozilla/sops/releases/download/{{ sops_release.tag}}/sops-{{ sops_release.tag | replace('v', '')}}-1.x86_64.rpm"
-    disable_gpg_check: true
+  apt:
+    name: "https://github.com/mozilla/sops/releases/download/{{ sops_release.tag}}/sops-{{ sops_release.tag | replace('v', '')}}-1.x86_64.deb"
     state: latest
