@@ -4,8 +4,8 @@
   gather_facts: true
   any_errors_fatal: true
   roles:
-    - python_libs
     - debian11
+    - python_libs
     - k9s
     - zsh
     - kitty
