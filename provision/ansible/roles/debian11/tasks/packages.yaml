@@ -5,6 +5,7 @@
     name:
       - xorg
       - apt-transport-https
+      - software-properties-common
       - ca-certificates
       - lsb-release
       - curl

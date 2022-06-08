@@ -1,17 +1,19 @@
 ---
-- name: Make sure dnf config manager is installed.
+- name: Add github cli gpg key.
   become: true
-  dnf:
-    name:
-      - dnf-plugins-core
-    state: latest
+  apt_key:
+    url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
+    state: present
 
-- name: Add github repository.
+- name: Add github repo.
   become: true
-  shell: "dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo"
+  apt_repository:
+    url: deb https://cli.github.com/packages bullseye stable
+    state: present
 
 - name: Install github cli.
   become: true
-  dnf:
+  apt:
+    update_cache: true
     name:
       - gh

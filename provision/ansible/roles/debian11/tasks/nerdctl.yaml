@@ -20,6 +20,9 @@
     src: "/tmp/nerdctl-{{ nerdctl_release.tag | replace('v','')}}-linux-amd64.tar.gz"
     dest: "/usr/local/bin"
 
+- name: Enable nerdctl rootless.
+  shell: containerd-rootless-setuptool.sh install
+
 - name: Enable contianerd.
   systemd:
     name: containerd
