@@ -1,17 +1,5 @@
 ---
-- name: Download starship install script.
-  become: true
-  get_url:
-    url: https://starship.rs/install.sh
-    dest: /tmp/starship.sh
-    mode: "0755"
-
-- name: Run starship install script.
-  become: true
-  script: /tmp/starship.sh
-
-- name: Remove install script.
-  become: true
-  file:
-    state: absent
-    path: /tmp/starship.sh
+- name: Update "starship" Rust package its latest version
+  cargo:
+    name: starship
+    state: latest
