@@ -1,0 +1,19 @@
+---
+- hosts:
+    - localhost
+  gather_facts: true
+  any_errors_fatal: true
+  roles:
+    - python_libs
+    - debian11
+    - k9s
+    - zsh
+    - kitty
+    - rofi
+    - fonts
+    - starship
+    - i3
+    - polybar
+    - neovim
+    - node-modules
+    - kubebuilder

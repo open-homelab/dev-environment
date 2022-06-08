@@ -1,0 +1,9 @@
+---
+- name: Add i3-gaps PPA.
+  apt_repository:
+    repo: ppa:regolith-linux/release
+
+- name: Install i3-gaps.
+  apt:
+    update_cache: true
+    name: i3-gaps
