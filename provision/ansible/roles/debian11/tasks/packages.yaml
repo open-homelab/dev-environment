@@ -18,7 +18,6 @@
       - neovim
       - tigervnc-standalone-server
       - pre-commit
-      - code
       - zsh
       - kitty
       - tmux
