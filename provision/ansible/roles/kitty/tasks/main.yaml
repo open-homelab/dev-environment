@@ -2,7 +2,7 @@
 - name: Make sure kitty configuration directoy exsists.
   become: false
   file:
-    path: "./home/{{ local_user }}/.config/kitty"
+    path: "/home/{{ local_user }}/.config/kitty"
     state: directory
   tags: kitty
 
