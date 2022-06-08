@@ -43,6 +43,5 @@
       - qemu
     state: latest
     update_cache: true
-    upgrade: dist
     autoremove: true
     autoclean: true
