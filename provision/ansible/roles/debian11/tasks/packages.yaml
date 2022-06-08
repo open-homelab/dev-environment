@@ -30,7 +30,6 @@
       - zoxide
       - entr
       - mc
-      - kubectl
       - wireguard-tools
       - age
       - ipcalc
