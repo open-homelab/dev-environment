@@ -23,7 +23,6 @@
       - tmux
       - asciinema
       - direnv
-      - starship
       - exa
       - bat
       - ripgrep

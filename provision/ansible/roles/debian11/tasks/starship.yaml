@@ -1,0 +1,3 @@
+---
+- name: Install starship.
+  shell: curl -sS https://starship.rs/install.sh | sh
