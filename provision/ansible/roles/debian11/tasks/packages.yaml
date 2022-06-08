@@ -17,7 +17,6 @@
       - flameshot
       - neovim
       - tigervnc-standalone-server
-      - python-devel
       - pre-commit
       - code
       - zsh
