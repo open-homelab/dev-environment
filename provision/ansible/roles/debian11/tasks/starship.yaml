@@ -1,5 +1,5 @@
 ---
-- name: Update "starship" Rust package its latest version
-  cargo:
+- name: Update "starship" Rust package to its latest version
+  community.general.cargo:
     name: starship
     state: latest
