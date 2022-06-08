@@ -1,0 +1,7 @@
+---
+- name: Generic question with multiple different responses
+  ansible.builtin.expect:
+    command: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    responses:
+      Question:
+        - 1
