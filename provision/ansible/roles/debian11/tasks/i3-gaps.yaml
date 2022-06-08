@@ -1,11 +1,55 @@
 ---
-- name: Add i3-gaps PPA.
-  become: true
-  apt_repository:
-    repo: ppa:regolith-linux/release
-
-- name: Install i3-gaps.
+- name: Required packages to build from source.
   become: true
   apt:
     update_cache: true
-    name: i3-gaps
+    name:
+      - dh-autoreconf
+      - libxcb-keysyms1-dev
+      - libpango1.0-dev
+      - libxcb-util0-dev
+      - xcb
+      - libxcb1-dev
+      - libxcb-icccm4-dev
+      - libyajl-dev
+      - libev-dev
+      - libxcb-xkb-dev
+      - libxcb-cursor-dev
+      - libxkbcommon-dev
+      - libxcb-xinerama0-dev
+      - libxkbcommon-x11-dev
+      - libstartup-notification0-dev
+      - libxcb-randr0-dev
+      - libxcb-xrm0
+      - libxcb-xrm-dev
+      - libxcb-shape0
+      - libxcb-shape0-dev
+    state: latest
+
+- name: Create source code folder.
+  become: true
+  file:
+    path: /src/i3-gaps
+    state: directory
+
+- name: Pull source code.
+  become: true
+  git:
+    repo: 'https://github.com/Airblader/i3.git'
+    dest: /src/i3-gaps
+
+- name: Create build directory.
+  become: true
+  file:
+    path: /src/i3-gaps/build
+    state: directory
+
+- name: Run meson.
+  shell: meson ..
+  args:
+    chdir: /src/i3-gaps/build
+
+- name: Run ninja.
+  shell: ninja
+  args:
+    chdir: /src/i3-gaps/build
