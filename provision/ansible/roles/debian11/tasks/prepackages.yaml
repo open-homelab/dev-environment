@@ -1,7 +1,7 @@
 ---
 - name: Installing required packages.
+  become: true
   apt:
     update_cache: true
-    upgrade: dist
     name:
       - gnupg
