@@ -9,9 +9,8 @@
       - neofetch
       - wget
       - nodejs
-      - go
+      - golang
       - polybar
-      - i3-gaps
       - rofi
       - dunst
       - firefox
