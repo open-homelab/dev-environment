@@ -2,6 +2,7 @@
 - include_tasks: prepackages.yaml
 - include_tasks: i3-gaps.yaml
 - include_tasks: packages.yaml
+- include_tasks: rust.yaml
 - include_tasks: starship.yaml
 - include_tasks: k8slens.yaml
 - include_tasks: nerdctl.yaml
