@@ -1,3 +1,16 @@
 ---
-- name: Install starship.
-  shell: curl -sS https://starship.rs/install.sh | sh
+- name: Download starship install script.
+  become: true
+  get_url:
+    url: https://starship.rs/install.sh
+    dest: /tmp/starship.sh
+
+- name: Run starship install script.
+  become: true
+  shell: /tmp/starship.sh
+
+- name: Remove install script.
+  become: true
+  file:
+    state: absent
+    path: /tmp/starship.sh
