@@ -12,8 +12,8 @@
     - i3
     - polybar
     - neovim
-    - node-modules
     - kubebuilder
     - debian11
+    - node-modules
     - fonts
     - python_libs
