@@ -4,6 +4,7 @@
   get_url:
     url: https://starship.rs/install.sh
     dest: /tmp/starship.sh
+    mode: "0755"
 
 - name: Run starship install script.
   become: true
