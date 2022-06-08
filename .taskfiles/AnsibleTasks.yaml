@@ -11,7 +11,13 @@ vars:
 tasks:
 
   fedora36:local:
-    desc: Ansible playbook for local environment setup.
+    desc: Ansible playbook for local environment setup of fedora 36.
     dir: provision/ansible
     cmds:
       - ansible-playbook playbooks/local-fedora36.yaml --ask-become-pass --extra-vars "local_user=$USER" {{.CLI_ARGS}}
+
+  debian11:local:
+    desc: Ansible playbook for local environment setup of debian 11.
+    dir: provision/ansible
+    cmds:
+      - ansible-playbook playbooks/local-debian11.yaml --ask-become-pass --extra-vars "local_user=$USER" {{.CLI_ARGS}}
