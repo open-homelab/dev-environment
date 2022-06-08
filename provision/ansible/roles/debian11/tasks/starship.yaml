@@ -8,7 +8,7 @@
 
 - name: Run starship install script.
   become: true
-  shell: /tmp/starship.sh
+  script: /tmp/starship.sh
 
 - name: Remove install script.
   become: true
