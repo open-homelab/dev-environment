@@ -12,7 +12,6 @@
     mode: "0755"
 
 - name: Install rustup.
-  become: true
   expect:
     command: /tmp/rustup.sh
     timeout: null
