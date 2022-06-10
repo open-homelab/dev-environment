@@ -1,5 +1,11 @@
 ---
+- name: Install pexpect
+  become: true
+  pip:
+    name: pexpect
+
 - name: Install rustup.
+  become: true
   expect:
     command: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     responses:
