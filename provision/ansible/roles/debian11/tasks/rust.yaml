@@ -7,7 +7,7 @@
 - name: Install rustup.
   become: true
   expect:
-    command: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    command: curl --proto "=https" --tlsv1.2 -sSf https://sh.rustup.rs | sh
     responses:
       Question:
         - 1
