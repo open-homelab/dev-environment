@@ -12,7 +12,6 @@
       - neofetch
       - wget
       - nodejs
-      - cargo
       - golang
       - polybar
       - rofi
