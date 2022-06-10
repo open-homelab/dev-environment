@@ -15,9 +15,9 @@
   become: true
   expect:
     command: /tmp/rustup.sh
+    timeout: null
     responses:
-      Question:
-        - 1
+      (?i)>: 1
 
 - name: Remove rust up install script.
   become: true
