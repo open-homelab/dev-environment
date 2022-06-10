@@ -1,3 +1,3 @@
 ---
 - name: Update "starship" Rust package to its latest version
-  shell: . ~/.zshrc && cargo install starship --locked
+  shell: cargo install starship --locked
