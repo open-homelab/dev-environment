@@ -14,7 +14,7 @@
 - name: Install rustup.
   expect:
     command: /tmp/rustup.sh
-    timeout: null
+    timeout: 100000
     responses:
       (?i)>: 1
 
