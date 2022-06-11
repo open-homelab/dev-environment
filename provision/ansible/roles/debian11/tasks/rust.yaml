@@ -1,3 +1,5 @@
 ---
 - name: Install rust by rustup.
+  become: false
   shell: curl https://sh.rustup.rs -sSf | sh -s -- -y
+  tags: cargo, rust, rustup
