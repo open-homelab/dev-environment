@@ -12,6 +12,7 @@
       - neofetch
       - wget
       - nodejs
+      - npm
       - golang
       - polybar
       - rofi
