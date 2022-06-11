@@ -21,6 +21,7 @@
     dest: "/usr/local/bin"
 
 - name: Enable nerdctl rootless.
+  become: false
   shell: containerd-rootless-setuptool.sh install
 
 - name: Enable contianerd.
