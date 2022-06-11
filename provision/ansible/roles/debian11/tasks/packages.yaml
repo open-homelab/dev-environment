@@ -17,6 +17,7 @@
       - polybar
       - rofi
       - dunst
+      - psmisc
       - firefox-esr
       - flameshot
       - neovim
