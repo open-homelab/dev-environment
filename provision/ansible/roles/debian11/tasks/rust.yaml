@@ -1,25 +1,3 @@
 ---
-- name: Install pexpect
-  become: true
-  pip:
-    name: pexpect
-
-- name: Download rustup install script.
-  become: true
-  get_url:
-    url: https://sh.rustup.rs
-    dest: /tmp/rustup.sh
-    mode: "0755"
-
-- name: Install rustup.
-  expect:
-    command: /tmp/rustup.sh
-    timeout: 100000
-    responses:
-      (?i)>: 1
-
-- name: Remove rust up install script.
-  become: true
-  file:
-    state: absent
-    path: /tmp/rustup.sh
+- name: Install rust by rustup.
+  shell: curl https://sh.rustup.rs -sSf | sh -s -- -y
