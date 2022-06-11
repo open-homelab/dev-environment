@@ -39,9 +39,7 @@
       - jq
       - virt-manager
       - qemu
-      - build-essential
-      - libpam0g-dev
-      - libxcb-xkb-dev
+      - python3-venv
     state: latest
     update_cache: true
     autoremove: true

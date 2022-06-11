@@ -5,6 +5,9 @@
     update_cache: true
     name:
       - make
+      - build-essential
+      - libpam0g-dev
+      - libxcb-xkb-dev
     state: latest
 
 - name: Create source code folder.
