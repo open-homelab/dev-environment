@@ -1,6 +1,6 @@
 ---
 - name: Check if nerctl is installed.
-  command: command -v nerdctl
+  shell: command -v nerdctl
   register: nerdctl_check
 
 - name: Get nerdclt latest release.
