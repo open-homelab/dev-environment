@@ -24,10 +24,6 @@
   become: false
   shell: containerd-rootless-setuptool.sh install
 
-- name: Install rootless overlayfs.
-  become: false
-  shell: containerd-rootless-setuptool.sh install-fuse-overlayfs
-
 - name: Enable contianerd.
   systemd:
     name: containerd
