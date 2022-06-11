@@ -20,6 +20,10 @@
     src: "/tmp/nerdctl-{{ nerdctl_release.tag | replace('v','')}}-linux-amd64.tar.gz"
     dest: "/usr/local/bin"
 
+- name: Install rootless overlayfs.
+  become: false
+  shell: containerd-rootless-setuptool.sh install-fuse-overlayfs
+
 - name: Enable nerdctl rootless.
   become: false
   shell: containerd-rootless-setuptool.sh install
