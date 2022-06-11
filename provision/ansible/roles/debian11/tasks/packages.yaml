@@ -41,6 +41,7 @@
       - qemu
       - python3-venv
       - rootlesskit
+      - fuse-overlayfs
     state: latest
     update_cache: true
     autoremove: true
