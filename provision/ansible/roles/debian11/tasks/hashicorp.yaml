@@ -7,7 +7,7 @@
 - name: Add hashicorp repository.
   become: true
   apt_repository:
-    url: deb https://apt.releases.hashicorp.com bullseye stable
+    repo: deb https://apt.releases.hashicorp.com bullseye stable
     state: present
 
 - name: Install hashicorp tools.
