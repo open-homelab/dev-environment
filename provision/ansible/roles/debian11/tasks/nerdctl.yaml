@@ -1,6 +1,6 @@
 ---
 - name: Check if nerctl is installed.
-  shell: command -v nerdctl
+  command: nerdctl -v
   register: nerdctl_check
 
 - name: Get nerdclt latest release.
@@ -9,33 +9,33 @@
     repo: nerdctl
     action: latest_release
   register: nerdctl_release
-  when: nerdctl_check.stdout.find("/usr/local/bin/nerdctl") != -1
+  when: nerdctl_check.stdout.find("version") != -1
 
 - name: Print latest nerctl release.
   debug:
     msg: "Latest nerdctl release is {{ nerdctl_release.tag }}"
-  when: nerdctl_check.stdout.find("/usr/local/bin/nerdctl") != -1
+  when: nerdctl_check.stdout.find("version") != -1
 
 - name: Download latest nerdctl release.
   get_url:
     url: "https://github.com/containerd/nerdctl/releases/download/{{ nerdctl_release.tag}}/nerdctl-{{ nerdctl_release.tag | replace('v','')}}-linux-amd64.tar.gz"
     dest: "/tmp"
-  when: nerdctl_check.stdout.find("/usr/local/bin/nerdctl") != -1
+  when: nerdctl_check.stdout.find("version") != -1
 
 - name: Unarchive nerctl.
   unarchive:
     src: "/tmp/nerdctl-{{ nerdctl_release.tag | replace('v','')}}-linux-amd64.tar.gz"
     dest: "/usr/local/bin"
-  when: nerdctl_check.stdout.find("/usr/local/bin/nerdctl") != -1
+  when: nerdctl_check.stdout.find("version") != -1
 
 - name: Enable nerdctl rootless.
   become: false
   shell: containerd-rootless-setuptool.sh install
-  when: nerdctl_check.stdout.find("/usr/local/bin/nerdctl") != -1
+  when: nerdctl_check.stdout.find("version") != -1
 
 - name: Enable contianerd.
   systemd:
     name: containerd
     enabled: true
     state: started
-  when: nerdctl_check.stdout.find("/usr/local/bin/nerdctl") != -1
+  when: nerdctl_check.stdout.find("version") != -1
