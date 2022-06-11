@@ -1,5 +1,7 @@
 ---
-- name: Install github3.py library.
-  become: false
-  pip:
-    name: github3.py
+- name: Install github3.py
+  raw: |
+     if [ -x /tmp/py/bin/python ]; then exit 0; fi
+     /usr/local/bin/python3 -m venv --prompt tmp /tmp/py
+     .  /tmp/py/bin/activate
+     /tmp/py/bin/pip install --upgrade github3.py
