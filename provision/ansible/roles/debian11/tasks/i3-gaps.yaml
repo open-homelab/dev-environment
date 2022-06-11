@@ -57,7 +57,7 @@
   args:
     chdir: /tmp/i3-gaps/build
 
-- name: Run ninja.
+- name: Run ninja install.
   become: true
   shell: ninja install
   args:
