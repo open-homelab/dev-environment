@@ -39,6 +39,9 @@
       - jq
       - virt-manager
       - qemu
+      - build-essential
+      - libpam0g-dev
+      - libxcb-xkb-dev
     state: latest
     update_cache: true
     autoremove: true

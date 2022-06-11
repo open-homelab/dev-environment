@@ -1,0 +1,35 @@
+---
+- name: Required packages to build from source.
+  become: true
+  apt:
+    update_cache: true
+    name:
+      - make
+    state: latest
+
+- name: Create source code folder.
+  become: true
+  file:
+    path: /tmp/ly
+    state: directory
+
+- name: Pull source code.
+  become: true
+  git:
+    repo: 'https://github.com/fairyglade/ly.git'
+    dest: /tmp/ly
+
+- name: Run make.
+  shell: make
+  args:
+    chdir: /tmp/ly
+
+- name: Run make install.
+  shell: make install
+  args:
+    chdir: /tmp/ly
+
+- name: Remove source code.
+  file:
+    state: absent
+    path: /tmp/ly

@@ -32,35 +32,35 @@
 - name: Create source code folder.
   become: true
   file:
-    path: /src/i3-gaps
+    path: /tmp/i3-gaps
     state: directory
 
 - name: Pull source code.
   become: true
   git:
     repo: 'https://github.com/Airblader/i3.git'
-    dest: /src/i3-gaps
+    dest: /tmp/i3-gaps
 
 - name: Create build directory.
   become: true
   file:
-    path: /src/i3-gaps/build
+    path: /tmp/i3-gaps/build
     state: directory
 
 - name: Run meson.
   shell: meson ..
   args:
-    chdir: /src/i3-gaps/build
+    chdir: /tmp/i3-gaps/build
 
 - name: Run ninja.
   shell: ninja
   args:
-    chdir: /src/i3-gaps/build
+    chdir: /tmp/i3-gaps/build
 
 - name: Copy files to bin directory.
   become: true
   copy:
-    src: /src/i3-gaps/build/i3
+    src: /tmp/i3-gaps/build/i3
     dest: /usr/local/bin
     owner: root
     mode: "0755"
@@ -68,4 +68,4 @@
 - name: Remove source code.
   file:
     state: absent
-    path: /src
+    path: /tmp/i3-gaps
