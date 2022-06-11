@@ -13,4 +13,4 @@
 - name: Install sops.
   apt:
     deb: "https://github.com/mozilla/sops/releases/download/{{ sops_release.tag}}/sops_{{ sops_release.tag | replace('v', '')}}_amd64.deb"
-    state: latest
+    state: present
