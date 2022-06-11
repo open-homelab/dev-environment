@@ -1,3 +1,4 @@
+# shellcheck disable=all
 # Aliases
 alias vim=nvim
 alias vi=nvim
@@ -36,6 +37,9 @@ compinit
 
 # Add go programs to path
 PATH=$PATH:$HOME/go/bin
+
+# Add cargo to path.
+PATH=$PATH:$HOME/.cargo/bin
 
 # Enable kubectl autocompletion
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
