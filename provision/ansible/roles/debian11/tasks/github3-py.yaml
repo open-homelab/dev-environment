@@ -1,12 +1,4 @@
 ---
-- name: Make env directory.
-  file:
-    path: /tmp/py
-    state: directory
-
 - name: Install github3.py
-  raw: |
-     if [ -x /tmp/py/bin/python ]; then exit 0; fi
-     /usr/bin/python3 -m venv --prompt tmp /tmp/py
-     .  /tmp/py/bin/activate
-     /tmp/py/bin/pip install --upgrade github3.py
+  pip:
+    name: github3.py
