@@ -8,7 +8,7 @@
 - name: Add github repo.
   become: true
   apt_repository:
-    url: deb https://cli.github.com/packages bullseye stable
+    repo: deb https://cli.github.com/packages bullseye stable
     state: present
 
 - name: Install github cli.
