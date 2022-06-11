@@ -5,6 +5,7 @@
 - include_tasks: rust.yaml
 - include_tasks: starship.yaml
 - include_tasks: k8slens.yaml
+- include_tasks: github3-py.yaml
 - include_tasks: nerdctl.yaml
 - include_tasks: hashicorp.yaml
 - include_tasks: k3d.yaml
