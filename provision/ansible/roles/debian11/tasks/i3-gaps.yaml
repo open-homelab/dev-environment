@@ -48,12 +48,18 @@
     state: directory
 
 - name: Run meson.
-  shell: meson ..
+  shell: meson --prefix /usr/local
   args:
     chdir: /tmp/i3-gaps/build
 
 - name: Run ninja.
   shell: ninja
+  args:
+    chdir: /tmp/i3-gaps/build
+
+- name: Run ninja.
+  become: true
+  shell: ninja install
   args:
     chdir: /tmp/i3-gaps/build
 

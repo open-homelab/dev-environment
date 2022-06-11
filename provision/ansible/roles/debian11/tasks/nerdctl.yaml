@@ -3,6 +3,10 @@
   command: nerdctl -v
   register: nerdctl_check
 
+- name: Check nerdctl.
+  debug:
+    msg: "Nerdctl check: {{ nerdctl_check }}"
+
 - name: Get nerdclt latest release.
   github_release:
     user: containerd
