@@ -1,6 +1,5 @@
 ---
 - name: Install Lens from remote repo.
-  dnf:
-    name: "https://api.k8slens.dev/binaries/Lens-5.5.3-latest.20220602.2.x86_64.deb"
-    disable_gpg_check: true
+  apt:
+    deb: "https://api.k8slens.dev/binaries/Lens-5.5.3-latest.20220602.2.x86_64.deb"
     state: present
